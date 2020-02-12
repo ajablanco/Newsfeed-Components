@@ -9,43 +9,40 @@ let menuItems = [
   'Log Out'
 ];
 
-function menuCreator(items){
+function menuCreator(list){
+  //create elements
   const menu = document.createElement('div');
   const menuList = document.createElement('ul');
-  const menuItem = document.createElement('li');
 
-  menu.classList.add('menu');
-  
+  //setup structure
   menu.appendChild(menuList);
-  menuList.appendChild(menuItem);
 
-  menuButton = document.querySelector('.menu-button');
+  list.forEach(item=> {
+    const listItem = document.createElement('li');
+    listItem.textContent = item;
+    menuList.appendChild(listItem);
+  });
 
-  for (let i = 0; i < items.menuItems.length; i++)
-  {
-    let li = items.menuItems[i];
+  //set classes
+  menu.classList.add('menu');
+ 
+  return menu;
+}
 
-    li = document.createElement('li');
-    menuList.appendChild(li);
-    return li
-  }
-    
-
-  menuItem.textContent = li;
+  const header = document.querySelector('.header');
 
   const menuButton = document.querySelector('.menu-button');
+
+  const menu = menuCreator(menuItems);
+
+  header.prepend(menu);
 
   menuButton.addEventListener ('click', (e) => {
     console.log('button click', e.target)
     menu.classList.toggle('menu--open');
   })
-  return menu
-}
 
-  // menuButton = document.querySelector('.menu-button');
 
-  // menuItems.map(data => {menuButton.appendChild(menuCreator(data))
-  // })
 
 /* 
 
