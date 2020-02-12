@@ -34,13 +34,39 @@ function menuCreator(list){
   const menuButton = document.querySelector('.menu-button');
 
   const menu = menuCreator(menuItems);
+  const articles = document.querySelectorAll('.articles');
 
   header.prepend(menu);
 
   menuButton.addEventListener ('click', (e) => {
     console.log('button click', e.target)
     menu.classList.toggle('menu--open');
+
+    articles.forEach(item => {
+      item.style.marginLeft = "250px";
+      item.style.transition = ".5s";
+    })
+   
+
   })
+
+  menuButton.addEventListener ('mouseleave', (e) => {
+    console.log('button click', e.target)
+    menu.classList.toggle('menu--open');
+
+
+    articles.forEach(item => {
+      item.style.marginTop = "95px";
+      item.style.marginLeft = "0";
+      item.style.width = "100%";
+      item.style.transition = ".5s";
+    })
+   
+
+  })
+menu.style.width = "250px";
+
+
 
 
 

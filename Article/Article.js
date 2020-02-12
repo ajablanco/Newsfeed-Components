@@ -92,6 +92,20 @@ const data = [
     firstParagraph: 'Testing',
     secondParagraph: 'Testing',
     thirdParagraph: 'Testing'
+  },
+  {
+    title: 'Blah Blah Blah',
+    date: '02.10.2020',
+    firstParagraph: 'Blah',
+    secondParagraph: 'Blah',
+    thirdParagraph: 'Blah'
+  },
+  {
+    title: 'Hello',
+    date: '02.12.2020',
+    firstParagraph: 'Hello',
+    secondParagraph: 'How',
+    thirdParagraph: 'Are You?'
   }
 ];
 
@@ -137,7 +151,7 @@ function componentCreator(title, date, firstParagraph, secondParagraph, thirdPar
   
 
 
-const container = document.querySelector('body');
+const container = document.querySelector('.articles');
 console.log(container);
 
 data.map(data => {
