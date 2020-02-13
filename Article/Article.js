@@ -85,8 +85,84 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Testing',
+    date: '02.02.2020',
+    firstParagraph: 'Testing',
+    secondParagraph: 'Testing',
+    thirdParagraph: 'Testing'
+  },
+  {
+    title: 'Blah Blah Blah',
+    date: '02.10.2020',
+    firstParagraph: 'Blah',
+    secondParagraph: 'Blah',
+    thirdParagraph: 'Blah'
+  },
+  {
+    title: 'Hello',
+    date: '02.12.2020',
+    firstParagraph: 'Hello',
+    secondParagraph: 'How',
+    thirdParagraph: 'Are You?'
   }
 ];
+
+function componentCreator(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+ 
+  const div = document.createElement('div');
+  const h2 = document.createElement('h2');
+  const p = document.createElement('p');
+  const p1 = document.createElement('p');
+  const p2 = document.createElement('p');
+  const p3 = document.createElement('p');
+  const span = document.createElement('button');
+
+  div.classList.add('article');
+  p.classList.add('date');
+  span.classList.add('expandButton');
+
+  div.appendChild(h2);
+  div.appendChild(p);
+  div.appendChild(p1);
+  div.appendChild(p2);
+  div.appendChild(p3);
+  div.appendChild(span);
+
+  h2.textContent = title;
+  p.textContent = date;
+  p1.textContent = firstParagraph;
+  p2.textContent = secondParagraph;
+  p3.textContent = thirdParagraph;
+
+  span.style.width = "100px";
+  span.style.height = "25px";
+  span.style.backgroundColor = "green";
+  span.textContent = "Expand";
+  span.style.color = "white";
+
+  span.addEventListener ('click', (e) => {
+    console.log('button click', e.target)
+    div.classList.toggle('article-open');
+  })
+  return div
+}
+  
+
+
+const container = document.querySelector('.articles');
+console.log(container);
+
+data.map(data => {
+  container.appendChild(componentCreator(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+})
+
+
+
+
+
+
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
